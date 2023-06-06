@@ -43,6 +43,7 @@ public class Main {
         }
 
         do{
+
             numeroInformado = getValidarNumero(scanner, grauDeDificuldade);
             numeroSorteado = numeroAleatorio.nextInt(grauDeDificuldade);
             numeroInformadoMaisUm = numeroInformado + 1;
@@ -53,14 +54,15 @@ public class Main {
             if(numeroInformado.equals(numeroSorteado)) {
                 quantidadeDeAcertos = getQuantidadeDeAcertos(numerosDeAcerto, numeroInformado, quantidadeDeAcertos);
                 System.out.println("Parabéns você acertou e obteve 10 pontos de pontuação!");
-                querSair = getQuerSair(scanner);
                 pontuacao += 10;
+                querSair = getQuerSair(scanner);
 
             } else if (numeroInformadoMaisUm.equals(numeroSorteado) || numeroInformadoMenosUm.equals(numeroSorteado)) {
                 quantidadeDeAcertos = getQuantidadeDeAcertos(numerosDeAcerto, numeroInformado, quantidadeDeAcertos);
                 System.out.println("Parabéns você chegou perto e obteve 5 pontos de pontuação.");
-                querSair = getQuerSair(scanner);
                 pontuacao+=5;
+                querSair = getQuerSair(scanner);
+
 
             } else {
                 quantidadeDeErros = getQuantidadeDeErros(numerosDeErros, numeroInformado, quantidadeDeErros);
@@ -109,16 +111,29 @@ public class Main {
     }
 
     private static int getQuerSair(Scanner scanner) {
-        int querSair;
-        System.out.println("Digite 1 para jogar novamente e 2 para sair.");
-        querSair = scanner.nextInt();
+        Integer querSair;
+        do {
+            System.out.println("Digite 1 para jogar novamente ou 2 para sair.");
+            querSair = scanner.nextInt();
+            if(querSair < 1 || querSair >2){
+                System.out.println("Valor inválido!");
+            }
+        } while (querSair < 1 || querSair >2);
         return querSair;
+
     }
 
     private static int getDificuldadeDoJogo(Scanner scanner) {
         System.out.println("SEJA BEM-VINDO!");
-        System.out.println("Informe o nível de dificuldade do jogo (1- Fácil, 2- Médio e 3- Difícil):");
-        int dificuldadeDoJogo = scanner.nextInt();
+        Integer dificuldadeDoJogo;
+        do {
+            System.out.println("Informe o nível de dificuldade do jogo (1- Fácil, 2- Médio e 3- Difícil):");
+            dificuldadeDoJogo = scanner.nextInt();
+            if (dificuldadeDoJogo < 1 || dificuldadeDoJogo > 3) {
+                System.out.println("Valor inválido!");
+            }
+        } while (dificuldadeDoJogo < 1 || dificuldadeDoJogo > 3);
+
         switch (dificuldadeDoJogo) {
             case 1:
                 System.out.println("Você escolheu o nível fácil! Bora jogar!");
