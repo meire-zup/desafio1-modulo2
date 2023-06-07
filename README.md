@@ -18,3 +18,5 @@ Ao iniciar o programa, o usuário recebe as boas vindas e deverá informar o gra
 - Parabéns você chegou perto e obteve 5 pontos de pontuação.
 - Que pena! Você errou, tente novamente!
 
+<p>O usuário poderá optar por jogar novamente, digitando 1, ou por sair digitando 2. Se a opção for sair será exibido no console informações conforme figura a seguir:</p>
+<img width="560" alt="Captura de tela 2023-06-06 213026" src="https://github.com/meire-zup/desafio1-modulo2/assets/133882369/c5f43a2b-7cbb-44b0-b703-8247d27a4bf2">
